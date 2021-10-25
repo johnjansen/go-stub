@@ -1,3 +1,5 @@
+require 'shellwords'
+
 puts ARGV
 case ARGV[0]
 when "new"
@@ -12,7 +14,7 @@ when "new"
     end
 
     # setup the go module
-    `go mod init ${ARGV[2]}`
+    `go mod init #{ARGV[2]}`
 
     # go back home
     Dir.home
