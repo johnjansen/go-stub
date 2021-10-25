@@ -14,7 +14,23 @@ when "new"
     end
 
     # setup the go module
-    `go mod init #{ARGV[2]}`
+    puts `go mod init #{ARGV[2]}`
+
+    # db
+    print "do you want an sql database [y/n]? "
+    if gets.chomp == "y"
+        puts `go get gorm.io/gorm`
+        puts <<-DB
+            1) postgres
+            2) mysql
+        DB
+        case gets.chomp
+        when "1"
+            puts `go get gorm.io/driver/mysql`
+        when "2"
+            puts `go get gorm.io/driver/postgres`
+        end
+    end
 
     # go back home
     Dir.home
