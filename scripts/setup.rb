@@ -1,3 +1,4 @@
+puts ARGV
 case ARGV[0]
 when "new"
     # make the dir
@@ -10,6 +11,7 @@ when "new"
         Dir.mkdir(dir)
     end
 
+    # setup the go module
     `go mod init ${ARGV[2]}`
 
     # go back home
