@@ -1,8 +1,8 @@
 # configure directories
-mkdir cmd internal pkg vendor api web configs init build deployments test docs tools examples third_party githooks assets website
+mkdir -p cmd internal pkg vendor api web configs init build deployments test docs tools examples third_party githooks assets website
 
 # prep the go project
-go mod init $1
+go mod init primer_project
 go mod tidy
 
 # go get github.com/getsentry/sentry-go
