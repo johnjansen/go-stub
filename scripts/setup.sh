@@ -2,14 +2,17 @@
 mkdir -p cmd internal pkg vendor api web configs init build deployments test docs tools examples third_party githooks assets website
 
 # prep the go project
-go mod init $0
+echo "Go Package Name: "
+read packagename
+
+go mod init $packagename
 go mod tidy
 
-# go get github.com/getsentry/sentry-go
-# go get gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer
-# go get gorm.io/gorm
-# go get gorm.io/driver/postgres
-# go get github.com/elastic/go-elasticsearch/v7
+go get github.com/getsentry/sentry-go
+go get gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer
+go get gorm.io/gorm
+go get gorm.io/driver/postgres
+go get github.com/elastic/go-elasticsearch/v7
 
 # ensure protoc is installed
 
@@ -19,5 +22,5 @@ go mod tidy
 # echo "" > api/first.proto
 
 # make a sample client
-# mkdir examples/client
+mkdir -p examples/$packagename
 
