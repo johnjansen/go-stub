@@ -17,7 +17,7 @@ when "new"
     puts `go mod init #{ARGV[2]}`
 
     # db
-    print "do you want an sql database [y/n]? "
+    puts "do you want an sql database [y/n]? "
     if gets.chomp == "y"
         puts `go get gorm.io/gorm`
         puts <<-DB
